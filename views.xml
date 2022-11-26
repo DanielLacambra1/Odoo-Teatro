@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Obra: tree view-->
+    <record model="ir.ui.view" id="view_teatro_obra_tree">
+        <field name="name">teatro.obra.tree</field>
+        <field name="model">teatro.obra</field>
+        <field name="arch" type="xml">
+            <tree string="Obra">
+                <field name="name" />
+                <field name="genero" />
+                <field name="idioma" />
+                <field name="duracion" widget="float_time"  />
+                <field name="fecha_estreno" />
+                <field name="resumen" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!--PERSONA: tree view -->
+    <record model="ir.ui.view" id="view_teatro_persona_tree">
+        <field name="name">teatro.persona.tree</field>
+        <field name="model">teatro.persona</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="nacionalidad" />
+            </tree>
+        </field>
+    </record> 
+
+
+    <!-- Director: tree view -->
+    <record model="ir.ui.view" id="view_teatro_director_tree">
+        <field name="name">teatro.director.tree</field>
+        <field name="model">teatro.director</field>
+        <field name="inherit_id" ref="view_teatro_persona_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="experiencia" />
+                <field name="conocimientos" />
+                <field name="destrezas" />
+            </tree>
+        </field>
+    </record> 
+
+
+    <!--Actor: tree view-->
+    <record model="ir.ui.view" id="view_teatro_actor_tree">
+        <field name="name">teatro.actor.tree</field>
+        <field name="model">teatro.actor</field>
+        <field name="inherit_id" ref="view_teatro_persona_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="inicio_trayectoria" />
+                <field name="personaje_interpretado" />
+            </tree>
+        </field>
+    </record> 
+
+
+    <!-- Opinion: tree view-->
+    <record model="ir.ui.view" id="view_teatro_opinion_tree">
+        <field name="name">teatro.opinion.tree</field>
+        <field name="model">teatro.opinion</field>
+        <field name="arch" type="xml">
+            <tree string="Opinion">
+                <field name="persona" />
+                <field name="edad" />
+                <field name="fecha" />
+                <field name="calificacion" />
+                <field name="comentarios" />
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!-- ACTIONS WINDOW: para abrir vista de modelos-->
+
+    <record model="ir.actions.act_window" id="teatro.obra_action">
+        <field name="name">Obras</field>
+        <field name="res_model">teatro.obra</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="teatro.director_action">
+        <field name="name">Directores</field>
+        <field name="res_model">teatro.director</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="teatro.actor_action">
+        <field name="name">Actores</field>
+        <field name="res_model">teatro.actor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="teatro.opinion_action">
+        <field name="name">Opiniones</field>
+        <field name="res_model">teatro.opinion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+    <!-- MENUITEM-->
+    <menuitem name="TEATRO" id="teatro.root_menu"/>
+
+    <menuitem name="Obras" id="teatro.obra_menu" parent="teatro.root_menu" action="teatro.obra_action"/>
+    <menuitem name="Directores" id="teatro.director_menu" parent="teatro.root_menu" action="teatro.director_action" />
+    <menuitem name="Actores" id="teatro.actor_menu" parent="teatro.root_menu" action="teatro.actor_action" />
+    <menuitem name="Opiniones" id="teatro.opinion_menu" parent="teatro.root_menu" action="teatro.opinion_action" />
+
+</odoo>
