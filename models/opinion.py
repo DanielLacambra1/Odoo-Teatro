@@ -1,5 +1,4 @@
 from odoo import models, fields, api
-from . import persona
 
 class Opinion(models.Model):
     _name = 'teatro.opinion'

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+<data>
     <!-- Obra: tree view-->
     <record model="ir.ui.view" id="view_teatro_obra_tree">
         <field name="name">teatro.obra.tree</field>
@@ -75,6 +76,33 @@
     </record>
 
 
+    <!--Sala: tree view -->
+    <record model="ir.ui.view" id="view_teatro_sala_tree">
+        <field name="name">teatro.sala.tree</field>
+        <field name="model">teatro.sala</field>
+        <field name="arch" type="xml"> 
+            <tree string="Sala">
+                <field name="nombre" />
+                <field name="butacas" />
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Promoción: tree view -->
+    <record model="ir.ui.view" id="view_teatro_promocion_tree">
+        <field name="name">teatro.promocion.tree</field>
+        <field name="model">teatro.promocion</field>
+        <field name="arch" type="xml"> 
+            <tree string="Promoción">
+                <field name="descripcion" />
+                <field name="descuento" widget="percentpie" />
+            </tree>
+        </field>
+    </record>
+
+
+
 
     <!-- ACTIONS WINDOW: para abrir vista de modelos-->
 
@@ -98,8 +126,16 @@
         <field name="res_model">teatro.opinion</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-
+    <record model="ir.actions.act_window" id="teatro.sala_action">
+        <field name="name">Salas</field>
+        <field name="res_model">teatro.sala</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="teatro.promocion_action">
+        <field name="name">Promoción</field>
+        <field name="res_model">teatro.promocion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
 
     <!-- MENUITEM-->
@@ -109,5 +145,7 @@
     <menuitem name="Directores" id="teatro.director_menu" parent="teatro.root_menu" action="teatro.director_action" />
     <menuitem name="Actores" id="teatro.actor_menu" parent="teatro.root_menu" action="teatro.actor_action" />
     <menuitem name="Opiniones" id="teatro.opinion_menu" parent="teatro.root_menu" action="teatro.opinion_action" />
-
+    <menuitem name="Salas" id="teatro.sala_menu" parent="teatro.root_menu" action="teatro.sala_action" />
+    <menuitem name="Promociones" id="teatro.promocion_menu" parent="teatro.root_menu" action="teatro.promocion_action" />
+</data>
 </odoo>
