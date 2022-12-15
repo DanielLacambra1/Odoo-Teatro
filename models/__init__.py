@@ -1,1 +1,1 @@
-from . import base, obra, persona, director, actor, opinion, sala, promocion
+from . import base, obra, persona, director, actor, opinion, sala, promocion, escenografo

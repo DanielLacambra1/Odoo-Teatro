@@ -85,6 +85,20 @@
     </record> 
 
 
+                                                                                                    <!-- Escenógrafo: tree view -->
+    <record model="ir.ui.view" id="view_teatro_escenografo_tree">
+        <field name="name">teatro.escenografo.tree</field>
+        <field name="model">teatro.escenografo</field>
+        <field name="inherit_id" ref="view_teatro_persona_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="experiencia" />
+                <field name="conocimientos" />
+            </tree>
+        </field>
+    </record> 
+
+
                                                                                                     <!--Actor: tree view-->
     <record model="ir.ui.view" id="view_teatro_actor_tree">
         <field name="name">teatro.actor.tree</field>
@@ -162,7 +176,11 @@
         <field name="res_model">teatro.promocion</field>
         <field name="view_mode">tree,form,calendar</field>
     </record>
-
+    <record model="ir.actions.act_window" id="teatro.escenografo_action">
+        <field name="name">Escenógrafo</field>
+        <field name="res_model">teatro.escenografo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
 
                                                                                                         <!-- MENUITEM-->
     <menuitem name="TEATRO" id="teatro.root_menu"/>
@@ -173,6 +191,8 @@
     <menuitem name="Opiniones"     id="teatro.opinion_menu"   parent="teatro.root_menu"   action="teatro.opinion_action" />
     <menuitem name="Salas"         id="teatro.sala_menu"      parent="teatro.root_menu"   action="teatro.sala_action" />
     <menuitem name="Promociones"   id="teatro.promocion_menu" parent="teatro.root_menu"   action="teatro.promocion_action" />
+    <menuitem name="Escenógrafos"   id="teatro.escenografo_menu" parent="teatro.root_menu"   action="teatro.escenografo_action" />
     
+
 </data>
 </odoo>

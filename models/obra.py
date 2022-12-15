@@ -17,5 +17,6 @@ class Obra(models.Model):
     opinion_ids = fields.One2many(comodel_name='teatro.opinion', inverse_name='obra_id', string='Opiniones')
     sala_id = fields.Many2one(comodel_name='teatro.sala', string='Sala')
     promocion_ids = fields.Many2many(comodel_name='teatro.promocion', string='Promociones')
+    escenografo_ids = fields.Many2many(comodel_name='teatro.escenografo', string='Escenografos')
 
 
